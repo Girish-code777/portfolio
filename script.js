@@ -252,6 +252,27 @@ document.querySelector('.about-text')?.classList.add('reveal-right');
 document.querySelector('.contact-info')?.classList.add('reveal-left');
 document.querySelector('.contact-form')?.classList.add('reveal-right');
 
+// Add reveal to about section paragraphs
+document.querySelectorAll('.about-text-content p').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i * 0.15) + 's';
+});
+
+// Add reveal to about header
+document.querySelector('.about-header')?.classList.add('reveal');
+
+// Add reveal to contact cards
+document.querySelectorAll('.contact-card').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i * 0.1) + 's';
+});
+
+// Add reveal to message form
+document.querySelector('.message-form')?.classList.add('reveal');
+
+// Add reveal to hero elements
+document.querySelector('.hero-content')?.classList.add('reveal');
+
 window.addEventListener('scroll', reveal);
 reveal(); // Initial check
 
