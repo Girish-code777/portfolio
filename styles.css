@@ -444,63 +444,100 @@ button {
 /* ===== Custom Golden Sword Cursor ===== */
 .cursor {
     position: fixed;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     pointer-events: none;
     z-index: 99999;
-    transform: translate(-50%, -50%) rotate(-45deg);
-    transition: transform 0.1s ease;
+    transform: translate(-20%, -20%) rotate(-45deg);
+    transition: transform 0.05s ease;
 }
 
+/* Sword Blade */
 .cursor::before {
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px;
-    height: 20px;
-    background: linear-gradient(to bottom, #fcd34d, #f59e0b);
-    border-radius: 2px 2px 0 0;
-    box-shadow: 0 0 10px rgba(252, 211, 77, 0.6), 0 0 20px rgba(245, 158, 11, 0.4);
+    width: 6px;
+    height: 32px;
+    background: linear-gradient(to bottom, 
+        #fff9e6 0%, 
+        #fcd34d 20%, 
+        #f59e0b 60%, 
+        #d97706 100%
+    );
+    clip-path: polygon(50% 0%, 100% 15%, 100% 100%, 0% 100%, 0% 15%);
+    box-shadow: 
+        0 0 8px rgba(252, 211, 77, 0.8),
+        0 0 15px rgba(245, 158, 11, 0.5),
+        inset 0 0 4px rgba(255, 255, 255, 0.5);
 }
 
+/* Sword Handle/Guard */
 .cursor::after {
     content: '';
     position: absolute;
-    top: 18px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 12px;
-    height: 6px;
-    background: linear-gradient(to bottom, #92400e, #78350f);
-    border-radius: 1px;
+    width: 18px;
+    height: 5px;
+    background: linear-gradient(to bottom, #fbbf24, #b45309);
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Sword Grip */
+.cursor-blade {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 12px;
+    background: linear-gradient(to right, #78350f, #92400e, #78350f);
+    border-radius: 0 0 2px 2px;
+}
+
+/* Sword Pommel */
+.cursor-blade::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 5px;
+    background: linear-gradient(to bottom, #fbbf24, #d97706);
+    border-radius: 50%;
 }
 
 .cursor-follower {
     position: fixed;
-    width: 8px;
-    height: 8px;
-    background: radial-gradient(circle, rgba(252, 211, 77, 0.8), rgba(245, 158, 11, 0.4));
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #fcd34d, #f59e0b);
     border-radius: 50%;
     pointer-events: none;
     z-index: 99998;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px rgba(252, 211, 77, 0.5);
-    transition: width 0.2s, height 0.2s;
+    box-shadow: 0 0 12px rgba(252, 211, 77, 0.7);
+    transition: width 0.2s, height 0.2s, opacity 0.2s;
 }
 
 .cursor-follower.hover {
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(168, 85, 247, 0.6), transparent);
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, rgba(252, 211, 77, 0.4), transparent);
+    box-shadow: 0 0 20px rgba(252, 211, 77, 0.5);
 }
 
 body {
     cursor: none;
 }
 
-a, button, .project-card, .skill-card, .contact-card, .btn {
+a, button, .project-card, .skill-card, .contact-card, .btn, input, textarea {
     cursor: none;
 }
 
